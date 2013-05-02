@@ -1,0 +1,10 @@
+{% extends "template.html" %}
+{% block content %}
+    <h2>My Dashboard</h2>
+    <p>Welcome! What would you like to do today?</p>
+    <ul>
+        <li><a href='{{ url_for('shop') }}'>Shop for Souvenirs!</a></li>
+        <li><a href='{{ url_for('history') }}'>Check My Past Records!</a></li>
+        <li><a href="{{ url_for('logout') }}">I need to go... :/</a></li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+{% block content %}
+    <div class="page">
+        <h1>Shop!</h1>
+        <div class="entries">
+            <h2>Items in Our Shop :)</h2>
+            <div class="datagrid">
+                <table>
+                    <thread>
+                        <tr>
+                            <th width="300px"><strong>Item</strong></th>
+                            <th width="100px"><strong>Price</strong></th>
+                            <th width="50px"><strong>Availability</strong></th>
+                        </tr>
+                    </thread>
+                    {% for l in listofitems %}
+                        <tr>
+                            <td width="300px">{{ l.item_name }}</td>
+                            <td class='pricing' width="100px">{{ "{0:.2f}".format(l.price) }}</td>
+                            {% if l.availability == 1 %}
+                            <td width="50px">In Stock</td>
+                            {% else %}
+                            <td width="50px">Out of Stock</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

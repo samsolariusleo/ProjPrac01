@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DHS Souvenirs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+                <a class="brand" href="/">DHS Souvenirs</a>
+                <ul class="nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="{{ url_for('log') }}">Login</a></li>
+                    <!-- This part should not be here when user is not logged in yet -->
+                    <li><a href='{{ url_for('dashboard') }}'>Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+<br/>
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+            <div class=flash>{{ message }}</div>
+        {% endfor %}
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
