@@ -31,8 +31,8 @@ def dashboard():
 @login_required
 def shop():
     g.db = connect_db()
-    cur = g.db.execute('SELECT item_name, price, availability FROM items')
-    listofitems = [dict(item_name = row[0], price = row[1], availability = row[2]) for row in cur.fetchall()]
+    cur = g.db.execute('SELECT imgurl, item_name, price, availability FROM items')
+    listofitems = [dict(imgurl = row[0], item_name = row[1], price = row[2], availability = row[3]) for row in cur.fetchall()]
     g.db.close()
     return render_template('shop.html', listofitems = listofitems)
 

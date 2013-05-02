@@ -1,0 +1,14 @@
+{% extends "template.html" %}
+{% block content %}
+    <h2>Confirm Your Orders</h2>
+    <div class='content'>
+        <p>Here is a list of your orders:</p>
+        <br>
+        <!-- Insert a list of orders here, please -->
+        <br>
+        <br>
+        <p>Are you sure you want to confirm your order?</p>
+        <!-- Once 'yes' is clicked, the order will be sent to the database -->
+        <input type="button" value="Yes"><input type="button" value='No' onclick="goBack()">
+    </div>
+{% endblock %}

@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<p>Blank history for now... :)</p>
-</body>
-</html>
+{% extends "template.html" %}
+{% block content %}
+    <h2>History</h2>
+    <div class='content'>
+        <p>Blank history for now...</p>
+        <br>
+        <br>
+        <input type="button" value="Back" onclick="goBack()">
+    </div>
+{% endblock %}

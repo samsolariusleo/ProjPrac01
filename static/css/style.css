@@ -1,7 +1,30 @@
 th {
     text-align: left;
+    background-color: lightblue;
+}
+
+td {
+    background-color: lightgoldenrodyellow;
+}
+
+table, td, th
+{
+    border:1px solid #ffffff;
+    padding:10px;
+}
+
+.availpricetxt {
+    text-align: center;
 }
 
 .pricing {
-    text-align: right;
+    text-align: center;
+}
+
+.itemimg {
+    max-width: 100px;
+}
+
+.avail {
+    text-align: center;
 }
