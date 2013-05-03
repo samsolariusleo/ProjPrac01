@@ -6,11 +6,11 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/template.html" changelist="75e8de7c-3eef-47d7-a35a-2f9bbab5eb67" time="1367553298772" ignored="false" />
     <file path="/shop.html" changelist="75e8de7c-3eef-47d7-a35a-2f9bbab5eb67" time="1367562826497" ignored="false" />
-    <file path="/ProjPrac01.py" changelist="75e8de7c-3eef-47d7-a35a-2f9bbab5eb67" time="1367573841163" ignored="false" />
+    <file path="/ProjPrac01.py" changelist="75e8de7c-3eef-47d7-a35a-2f9bbab5eb67" time="1367576965730" ignored="false" />
     <file path="/style.css" changelist="75e8de7c-3eef-47d7-a35a-2f9bbab5eb67" time="1367559613923" ignored="false" />
     <file path="/home.html" changelist="75e8de7c-3eef-47d7-a35a-2f9bbab5eb67" time="1367420896517" ignored="false" />
     <file path="/dashboard.html" changelist="75e8de7c-3eef-47d7-a35a-2f9bbab5eb67" time="1367423206193" ignored="false" />
-    <file path="/history.html" changelist="75e8de7c-3eef-47d7-a35a-2f9bbab5eb67" time="1367571956974" ignored="false" />
+    <file path="/history.html" changelist="75e8de7c-3eef-47d7-a35a-2f9bbab5eb67" time="1367576367718" ignored="false" />
     <file path="/itempage.html" changelist="75e8de7c-3eef-47d7-a35a-2f9bbab5eb67" time="1367500395250" ignored="false" />
     <file path="/confirm.html" changelist="75e8de7c-3eef-47d7-a35a-2f9bbab5eb67" time="1367573406775" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/relaxng.rng" changelist="75e8de7c-3eef-47d7-a35a-2f9bbab5eb67" time="1367544563365" ignored="false" />
@@ -38,7 +38,7 @@
       <file leaf-file-name="ProjPrac01.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ProjPrac01.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="14" selection-start="62" selection-end="62" vertical-scroll-proportion="0.0952381">
+            <state line="132" column="0" selection-start="4592" selection-end="4592" vertical-scroll-proportion="0.71428573">
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -46,19 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="confirm.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/confirm.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="56" selection-start="0" selection-end="2001" vertical-scroll-proportion="-7.5384617">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="history.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/history.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="19" selection-start="49" selection-end="49" vertical-scroll-proportion="-0.65384614">
+            <state line="21" column="63" selection-start="0" selection-end="1722" vertical-scroll-proportion="-9.153846">
               <folding />
             </state>
           </provider>
@@ -92,9 +83,9 @@
         <option value="$PROJECT_DIR$/templates/shop.html" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/static/js/script.js" />
-        <option value="$PROJECT_DIR$/templates/history.html" />
         <option value="$PROJECT_DIR$/templates/confirm.html" />
         <option value="$PROJECT_DIR$/ProjPrac01.py" />
+        <option value="$PROJECT_DIR$/templates/history.html" />
       </list>
     </option>
   </component>
@@ -467,13 +458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/history.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="19" selection-start="49" selection-end="49" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="7" selection-start="1675" selection-end="1675" vertical-scroll-proportion="-18.653847">
@@ -481,9 +465,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/history.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="63" selection-start="0" selection-end="1722" vertical-scroll-proportion="-9.153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ProjPrac01.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="14" selection-start="62" selection-end="62" vertical-scroll-proportion="0.0952381">
+        <state line="132" column="0" selection-start="4592" selection-end="4592" vertical-scroll-proportion="0.71428573">
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

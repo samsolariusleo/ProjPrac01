@@ -1,5 +1,6 @@
 from flask import *
 from functools import wraps
+from datetime import datetime
 import sqlite3
 
 DATABASE = '/home/LionCubFearMe/mysite/sales.db'
@@ -88,8 +89,8 @@ def sendorders():
         item_name = currentorder['item_name']
         price = currentorder['price']
         quantity = currentorder['quantity']
-        g.db.execute('INSERT INTO confirmed (imgurl, item_name, price, quantity) '
-                     'VALUES (?, ?, ?, ?)', [imgurl, item_name, price, quantity])
+        g.db.execute('INSERT INTO confirmed (imgurl, item_name, price, quantity, date) '
+                     'VALUES (?, ?, ?, ?, ?)', [imgurl, item_name, price, quantity, datetime.now()])
         g.db.commit()
     cur = g.db.execute('DELETE FROM orders')
     g.db.commit()
@@ -101,7 +102,7 @@ def sendorders():
 def history():
     g.db = connect_db()
     cur = g.db.execute('SELECT * FROM confirmed')
-    confirmedlist = [dict(id=row[0], imgurl=row[1], item_name=row[2], price=row[3], quantity=row[4])
+    confirmedlist = [dict(id=row[0], date=row[1], imgurl=row[2], item_name=row[3], price=row[4], quantity=row[5])
                      for row in cur.fetchall()]
     g.db.close()
     return render_template('history.html', confirmedlist = confirmedlist)

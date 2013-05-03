@@ -8,6 +8,7 @@
                     <thread>
                         <tr>
                             <th width='20px'><strong>ID</strong></th>
+                            <th width='150px'><strong>Date of Purchase</strong></th>
                             <th width='120px'><strong>Thumbnail</strong></th>
                             <th width="300px"><strong>Item</strong></th>
                             <th class='availpricetxt' width="100px"><strong>Unit Price</strong></th>
@@ -18,6 +19,7 @@
                     {% for l in confirmedlist %}
                         <tr>
                             <td width='20px'>{{ l.id }}</td>
+                            <td width='150px'>{{ l.date }}</td>
                             <td width='120px'><img class='itemimg' src='{{ l.imgurl }}'></td>
                             <td width="300px">{{ l.item_name }}</td>
                             <td class='pricing' width="100px">${{ "{0:.2f}".format(l.price) }}</td>
