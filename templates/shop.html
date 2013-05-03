@@ -8,23 +8,33 @@
                 <table>
                     <thread>
                         <tr>
+                            <th width='20px'><strong>ID</strong></th>
                             <th width='120px'><strong>Thumbnail</strong></th>
                             <th width="300px"><strong>Item</strong></th>
                             <th class='availpricetxt' width="100px"><strong>Unit Price</strong></th>
                             <th class="availpricetxt" width="100px"><strong>Availability</strong></th>
+                            <th width='50px'><strong>Quantity</strong></th>
                             <th width='100px'><strong>Buy Item</strong></th>
                         </tr>
                     </thread>
                     {% for l in listofitems %}
                         <tr>
+                        <form action='{{ url_for('buy') }}' method='POST'>
+                            <td width='20px'><input type='text' name='id' readonly value='{{ l.id }}'></td>
                             <td width='120px'><img class='itemimg' src='{{ l.imgurl }}'></td>
                             <td width="300px">{{ l.item_name }}</td>
                             <td class='pricing' width="100px">${{ "{0:.2f}".format(l.price) }}</td>
                             {% if l.availability == 1 %}
                             <td class='avail' width="100px">In Stock</td>
-                            <td width='100px'>Buy Me!</td>
+                            <td width='50px'>
+                                    <input type='number' name='quantity' width='50px' min='0'>
+                            </td>
+                            <td width='100px'><input class='button' type='submit' value='Add to Cart'></td>
+                        </form>
                             {% else %}
                             <td class='avail' width="100px">Out of Stock</td>
+                            <td class='avail' width='50px'>NA</td>
+                            <td width='100px'>NA</td>
                             {% endif %}
                         </tr>
                     {% endfor %}
@@ -35,4 +45,5 @@
     <br>
     <br>
     <br>
+
 {% endblock %}

@@ -4,11 +4,39 @@
     <div class='content'>
         <p>Here is a list of your orders:</p>
         <br>
-        <!-- Insert a list of orders here, please -->
+        <div class="datagrid">
+                <table>
+                    <thread>
+                        <tr>
+                            <th width='20px'><strong>ID</strong></th>
+                            <th width='120px'><strong>Thumbnail</strong></th>
+                            <th width="300px"><strong>Item</strong></th>
+                            <th class='availpricetxt' width="100px"><strong>Unit Price</strong></th>
+                            <th width='80px'><strong>Quantity</strong></th>
+                            <th width='100px'><strong>Total Price</strong></th>
+                            <th width='80px'><strong>Actions</strong></th>
+                        </tr>
+                    </thread>
+                    {% for l in listorders %}
+                        <tr>
+                            <td width='20px'>{{ l.id }}</td>
+                            <td width='120px'><img class='itemimg' src='{{ l.imgurl }}'></td>
+                            <td width="300px">{{ l.item_name }}</td>
+                            <td class='pricing' width="100px">${{ "{0:.2f}".format(l.price) }}</td>
+                            <td width='80px'>{{ l.quantity }}</td>
+                            <td width='100px'>${{ "{0:.2f}".format(l.quantity * l.price) }}</td>
+                            <td width='80px'><a href='{{ url_for('delete', id = l.id) }}'>Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        <br>
         <br>
         <br>
         <p>Are you sure you want to confirm your order?</p>
         <!-- Once 'yes' is clicked, the order will be sent to the database -->
-        <input type="button" value="Yes"><input type="button" value='No' onclick="goBack()">
+        <form action='{{ url_for('sendorders') }}' method='POST'>
+            <input type="submit" value="Yes">
+        </form>
     </div>
 {% endblock %}

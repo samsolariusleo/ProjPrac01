@@ -4,12 +4,8 @@
     <title>DHS Souvenirs</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script>
-        function goBack()
-        {
-            window.history.go(-1)
-        }
-    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
 </head>
 <body>
     <header>
@@ -23,6 +19,7 @@
                     {% else %}
                     <!-- This part should not be here when user is not logged in yet -->
                     <li><a href='{{ url_for('dashboard') }}'>Dashboard</a></li>
+                    <li><a href='{{ url_for('confirm') }}'>My Cart</a></li>
                     <li><a href="{{ url_for('shop') }}">Shop</a></li>
                     <li><a href='{{ url_for('history') }}'>History</a></li>
                     <li><a href='{{ url_for('logout') }}'>Logout</a></li>

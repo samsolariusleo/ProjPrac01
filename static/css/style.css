@@ -28,3 +28,15 @@ table, td, th
 .avail {
     text-align: center;
 }
+
+.viewitem {
+    margin-left: 200px;
+    padding: 50px;
+    max-width: 400px;
+}
+
+.viewtitle {
+    margin-left: 50px;
+    padding: 50px;
+    text-align: left;
+}

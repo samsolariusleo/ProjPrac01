@@ -1,8 +1,32 @@
 {% extends "template.html" %}
 {% block content %}
     <h2>History</h2>
+    <h3>The Orders That I've Made</h3>
     <div class='content'>
-        <p>Blank history for now...</p>
+        <div class="datagrid">
+                <table>
+                    <thread>
+                        <tr>
+                            <th width='20px'><strong>ID</strong></th>
+                            <th width='120px'><strong>Thumbnail</strong></th>
+                            <th width="300px"><strong>Item</strong></th>
+                            <th class='availpricetxt' width="100px"><strong>Unit Price</strong></th>
+                            <th width='80px'><strong>Quantity</strong></th>
+                            <th width='100px'><strong>Total Price</strong></th>
+                        </tr>
+                    </thread>
+                    {% for l in confirmedlist %}
+                        <tr>
+                            <td width='20px'>{{ l.id }}</td>
+                            <td width='120px'><img class='itemimg' src='{{ l.imgurl }}'></td>
+                            <td width="300px">{{ l.item_name }}</td>
+                            <td class='pricing' width="100px">${{ "{0:.2f}".format(l.price) }}</td>
+                            <td width='80px'>{{ l.quantity }}</td>
+                            <td width='100px'>${{ "{0:.2f}".format(l.quantity * l.price) }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
         <br>
         <br>
         <input type="button" value="Back" onclick="goBack()">
