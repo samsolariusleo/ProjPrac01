@@ -18,8 +18,8 @@
                     </thread>
                     {% for l in confirmedlist %}
                         <tr>
-                            <td width='20px'>{{ l.id }}</td>
-                            <td width='150px'>{{ l.date }}</td>
+                            <td width='20px'>{{ l.date }}</td>
+                            <td width='150px'>{{ l.id }}</td>
                             <td width='120px'><img class='itemimg' src='{{ l.imgurl }}'></td>
                             <td width="300px">{{ l.item_name }}</td>
                             <td class='pricing' width="100px">${{ "{0:.2f}".format(l.price) }}</td>
@@ -28,6 +28,14 @@
                         </tr>
                     {% endfor %}
                 </table>
+                {% if confirmedlist == [] %}
+                    <br>
+                    <p>There are currently no order records of yours. Do confirm your orders <a href='{{ url_for('confirm') }}'>here</a> or shop for items
+                        <a href='{{ url_for('shop') }}'>here</a>.
+                    </p>
+                {% else %}
+                    <a href='{{ url_for('clearhistory') }}'>Clear Order History</a>
+                {% endif %}
             </div>
         <br>
         <br>

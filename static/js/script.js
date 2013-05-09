@@ -10,5 +10,12 @@
 
 function goBack()
         {
-            window.history.go(-1)
+            window.history.go(-1);
+        }
+
+// PRINT PAGE
+
+function printpage()
+        {
+            window.print();
         }

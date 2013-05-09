@@ -14,7 +14,7 @@
                             <th class='availpricetxt' width="100px"><strong>Unit Price</strong></th>
                             <th width='80px'><strong>Quantity</strong></th>
                             <th width='100px'><strong>Total Price</strong></th>
-                            <th width='80px'><strong>Actions</strong></th>
+                            <th width='150px'><strong>Actions</strong></th>
                         </tr>
                     </thread>
                     {% for l in listorders %}
@@ -23,20 +23,62 @@
                             <td width='120px'><img class='itemimg' src='{{ l.imgurl }}'></td>
                             <td width="300px">{{ l.item_name }}</td>
                             <td class='pricing' width="100px">${{ "{0:.2f}".format(l.price) }}</td>
-                            <td width='80px'>{{ l.quantity }}</td>
-                            <td width='100px'>${{ "{0:.2f}".format(l.quantity * l.price) }}</td>
-                            <td width='80px'><a href='{{ url_for('delete', id = l.id) }}'>Delete</a></td>
+                            <form action='{{ url_for('edit', id = l.id) }}' method='POST'>
+                                <td width='80px'><input type='number' name='quantity' width='80px' value='{{ l.quantity }}' min='1'></td>
+                                <td width='100px'>${{ "{0:.2f}".format(l.quantity * l.price) }}</td>
+                                <td width='150px'><a href='{{ url_for('delete', id = l.id) }}'>Delete</a> | <input class='updatebtn' type='submit' value='Update'></td>
+                            </form>
                         </tr>
                     {% endfor %}
                 </table>
+                {% if listorders != [] %}
+                    <a href='{{ url_for('clear') }}'>Clear All Orders</a>
+                {% endif %}
             </div>
         <br>
         <br>
         <br>
-        <p>Are you sure you want to confirm your order?</p>
-        <!-- Once 'yes' is clicked, the order will be sent to the database -->
-        <form action='{{ url_for('sendorders') }}' method='POST'>
-            <input type="submit" value="Yes">
-        </form>
+        {% if listorders == [] %}
+            <p>You currently have no orders. Click <a href='{{ url_for('shop') }}'>here</a> to shop for items!</p>
+        {% else %}
+            <p>Are you sure you want to confirm your order?</p>
+            <!-- Once 'yes' is clicked, the order will be sent to the database -->
+
+            <form id="credit card" action="{{ url_for('sendorders') }}" method="post" >
+                <div class="block">
+                <label for="cardNumber">Name:</label>
+                <input type="text" size="60" id="name" name="name" />
+                </div>
+
+                <div class="block">
+                <label for="address">Address:</label>
+                <input type="text" size="60" id="Text1" name="name" />
+                </div>
+
+                <div class="block">
+                <label for="cardNumber">Credit Card Number:</label>
+                <input type="password" size="12" id="cardNumber" name="cardNumber" />
+                </div>
+                <div>
+                <select name="monthExpires" >
+                <option value="" SELECTED>--Exipration Month--
+                <option value="01">January (01)
+                <option value="02">February (02)
+                <option value="03">March (03)
+                <option value="04">April</option>
+
+                </select> /
+                <select name="yearExpires">
+                <option value="" SELECTED>--Expiration Year--
+                <option value="10">2010
+                <option value="11">2011
+                <option value="12">2012
+                <option value="13">2013
+                </select>
+                </div>
+
+                <p><input type="submit" value="Yes" onclick='printpage()'></p>
+            </form>
+        {% endif %}
     </div>
 {% endblock %}

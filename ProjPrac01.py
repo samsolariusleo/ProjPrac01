@@ -42,7 +42,6 @@ def shop():
 @login_required
 def buy():
     item_id = request.form['id']
-    quantity = request.form['quantity']
     g.db = connect_db()
     cur = g.db.execute('SELECT id, imgurl, item_name, price FROM items WHERE id ='+ str(item_id))
     listofdict = [dict(id=row[0], imgurl=row[1], item_name=row[2], price=row[3]) for row in cur.fetchall()]
@@ -51,7 +50,7 @@ def buy():
     item_name = currentorder['item_name']
     price = currentorder['price']
     g.db.execute('INSERT INTO orders (imgurl, item_name, price, quantity) '
-                 'VALUES (?, ?, ?, ?)', [imgurl, item_name, price, quantity])
+                 'VALUES (?, ?, ?, 1)', [imgurl, item_name, price])
     g.db.commit()
     flash('Your order has been made')
     return redirect(url_for('shop'))
@@ -73,6 +72,27 @@ def delete(id):
     g.db.commit()
     g.db.close()
     flash('The item has been removed from your cart')
+    return redirect(url_for('confirm'))
+
+@app.route('/edit/<int:id>', methods=['POST'])
+@login_required
+def edit(id):
+    new_quantity = request.form['quantity']
+    g.db = connect_db()
+    cur = g.db.execute('UPDATE orders SET quantity='+str(new_quantity)+' WHERE id='+str(id))
+    g.db.commit()
+    g.db.close()
+    flash('Order has been edited')
+    return redirect(url_for('confirm'))
+
+@app.route('/clear')
+@login_required
+def clear():
+    g.db = connect_db()
+    g.db.execute('DELETE FROM orders')
+    g.db.commit()
+    g.db.close()
+    flash('Your cart has been reset')
     return redirect(url_for('confirm'))
 
 @app.route('/sendorders', methods=['POST'])
@@ -106,6 +126,16 @@ def history():
                      for row in cur.fetchall()]
     g.db.close()
     return render_template('history.html', confirmedlist = confirmedlist)
+
+@app.route('/clearhistory')
+@login_required
+def clearhistory():
+    g.db = connect_db()
+    g.db.execute('DELETE FROM confirmed')
+    g.db.commit()
+    g.db.close()
+    flash('Your order history has been cleared')
+    return redirect(url_for('history'))
 
 @app.route('/logout')
 def logout():

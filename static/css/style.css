@@ -40,3 +40,16 @@ table, td, th
     padding: 50px;
     text-align: left;
 }
+
+.updatebtn {
+    background:none;
+    border:none;
+    padding:0;
+    color:#0088cc
+}
+
+.updatebtn:hover,
+.updatebtn:focus {
+    color: #005580;
+    text-decoration: underline;
+}
